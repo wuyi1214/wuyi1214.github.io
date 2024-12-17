@@ -5,21 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>也许有用的画师tag关联图</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+        body, html {
             margin: 0;
-            background-color: #f4f4f4;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+            overflow: hidden; /* 防止滚动条出现 */
+        }
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('background.png'); /* 替换为你的背景图片路径 */
+            background-size: cover; /* 背景图片覆盖整个容器 */
+            background-position: center; /* 背景图片居中 */
+            z-index: -1; /* 确保背景图片在内容后面 */
+        }
+        .content-wrapper {
+            position: relative;
+            z-index: 1; /* 确保内容在背景图片前面 */
+            background-color: rgba(255, 255, 255, 0.8); /* 半透明白色背景，以便看到背景图片 */
+            border-radius: 15px; /* 圆角矩形 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 轻微阴影效果 */
+            text-align: center; /* 文本居中 */
+            padding: 20px;
+            max-width: 600px; /* 最大宽度，防止在小屏幕上过大 */
+            width: 100%; /* 在大屏幕上占据可用宽度 */
         }
         header {
-            text-align: center;
+            margin-bottom: 20px;
         }
         .links {
-            text-align: center;
             margin-top: 20px;
         }
         .link {
@@ -36,13 +56,16 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>也许有用的画师tag关联图</h1>
-    </header>
-    <div class="links">
-        <a href="map_v0.1/map.html" class="link">v0.1</a>
-        <a href="#" class="link disabled">v0.2</a>
-        <a href="#" class="link disabled">v0.3</a>
+    <div class="background"></div>
+    <div class="content-wrapper">
+        <header>
+            <h1>也许有用的画师tag关联图</h1>
+        </header>
+        <div class="links">
+            <a href="map_v0.1/map.html" class="link">v0.1</a>
+            <a href="#" class="link disabled">v0.2</a>
+            <a href="#" class="link disabled">v0.3</a>
+        </div>
     </div>
 </body>
 </html>
