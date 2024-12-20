@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>程序列表</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center; /* 默认文本左对齐 */
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: center; /* 标题居中 */
+        }
+        td:nth-child(1), td:nth-child(3) {
+            width: 20%; /* 介绍和下载列宽度设为45%，留10%给视频列（或其他灵活调整） */
+        }
+        video {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+ 
+<h1 style="text-align: center;">可能有用的程序列表</h1>
+ 
+<table>
+    <tr>
+        <th>程序名称</th>
+        <th>演示视频</th>
+        <th>下载链接</th>
+    </tr>
+    <tr>
+        <td>
+            <p>把png文件夹里面的所有png图片转为jpg，存在jpg文件夹里。</p>
+        </td>
+        <td>
+            <video controls>
+                <source src="png_to_jpg.mp4" type="video/mp4">
+                您的浏览器不支持HTML5视频标签。
+            </video>
+        </td>
+        <td>
+            <a href="png_to_jpg.exe" download="png_to_jpg.exe">png_to_jpg</a>
+        </td>
+    </tr>
+    <!-- 根据需要添加更多程序行 -->
+</table>
+ 
+</body>
+</html>
