@@ -2,9 +2,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     const rowsPerPage = 10; // 每页显示的行数
     let currentPage = 1; // 当前页码
+    let collectedString = '';
     const totalRows = 714; // 总行数（示例数据，实际应动态获取）
 
     const tableBody = document.getElementById('table-body');
+    const goPageButton = document.getElementById('go-to-page');
+    const firstPageButton = document.getElementById('first-page');
     const prevPageButton = document.getElementById('prev-page');
     const nextPageButton = document.getElementById('next-page');
     const pageInfo = document.getElementById('page-info');
@@ -732,33 +735,102 @@ document.addEventListener('DOMContentLoaded', function() {
     function renderTable(page) {
         tableBody.innerHTML = ''; // 清空表格体
         const startIndex = (page - 1) * rowsPerPage;
-        const endIndex = startIndex + rowsPerPage;
+        const endIndex = Math.min(startIndex + rowsPerPage, totalRows);
         for (let i = startIndex; i < endIndex && i < totalRows; i++) {
             const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${data[i].title}</td>
-                <td><img src="${data[i].images[0]}" alt="图片1"></td>
-                <td><img src="${data[i].images[1]}" alt="图片2"></td>
-                <td><img src="${data[i].images[2]}" alt="图片3"></td>
-                <td><img src="${data[i].images[3]}" alt="图片4"></td>
-                <td><img src="${data[i].images[4]}" alt="图片5"></td>
-            `;
+    
+            // 第一列：标题和添加按钮
+            const titleCell = document.createElement('td');
+            const addButton = document.createElement('button');
+            addButton.textContent = '添加';
+            addButton.onclick = () => {
+                collectedString += data[i].title + ',';
+                updateCopyButtonAndPreview();
+            };
+            titleCell.appendChild(addButton);
+            titleCell.appendChild(document.createTextNode(` ${data[i].title}`));
+            row.appendChild(titleCell);
+    
+            // 其他列：图像
+            for (let j = 0; j < data[i].images.length && j < 5; j++) { // 假设最多显示5张图片
+                const imgCell = document.createElement('td');
+                const img = document.createElement('img');
+                img.src = data[i].images[j]; // 这里应该是一个完整的URL或者相对路径
+                img.alt = `图片${j + 1}`;
+                imgCell.appendChild(img);
+                row.appendChild(imgCell);
+            }
+    
             tableBody.appendChild(row);
         }
-        updatePaginationControls();
+        updatePaginationControls(); // 更新分页控件（如果有的话）
+        updateCopyButtonAndPreview(); // 更新复制按钮和预览文本
     }
+    
+    // 更新复制按钮和预览文本
+    function updateCopyButtonAndPreview() {
+        const copyButton = document.getElementById('copy-all-button');
+        const deleteButton = document.getElementById('delete-all-button');
+        const stringPreview = document.getElementById('string-preview');
+        stringPreview.textContent = `已收集字符串: ${collectedString.trimEnd(',')}`;
+        copyButton.disabled = collectedString.trim() === '';
+        deleteButton.disabled = collectedString.trim() === '';
+    }
+    
+    // 复制字符串到剪贴板
+    function copyStringToClipboard() {
+        const textArea = document.createElement('textarea');
+        textArea.value = collectedString;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        alert('字符串已复制到剪贴板！');
+    }
+    function clearCollectedStrings() {
+        collectedString = ''; // 重置数组
+        updateCopyButtonAndPreview();
+        alert('已清除！');
+    }
+    
+    // 初始化复制按钮的点击事件
+    document.getElementById('copy-all-button').onclick = copyStringToClipboard;
+    document.getElementById('delete-all-button').onclick = clearCollectedStrings;
 
     // 更新分页控件的状态
     function updatePaginationControls() {
+        firstPageButton.disabled = currentPage === 1;
         prevPageButton.disabled = currentPage === 1;
         nextPageButton.disabled = currentPage * rowsPerPage >= totalRows;
         pageInfo.textContent = `第 ${currentPage} 页 / 共 ${Math.ceil(totalRows / rowsPerPage)} 页`;
+    }
+
+    function goToPage() {
+        const pageInput = document.getElementById('page-input');
+        const page = parseInt(pageInput.value, 10);
+ 
+        if (!isNaN(page) && page > 0 && page <= Math.ceil(titles.length / rowsPerPage)) {
+            currentPage = page;
+            renderTable(currentPage);
+        } else {
+            alert('Please enter a valid page number.');
+        }
     }
 
     // 初始化表格和分页控件
     renderTable(currentPage);
 
     // 分页按钮点击事件处理
+    firstPageButton.addEventListener('click', function() {
+        if (currentPage > 1) {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // 添加平滑滚动效果
+            });
+            currentPage = 1;
+            renderTable(currentPage);
+        }
+    });
     prevPageButton.addEventListener('click', function() {
         if (currentPage > 1) {
             window.scrollTo({
@@ -780,6 +852,23 @@ document.addEventListener('DOMContentLoaded', function() {
             renderTable(currentPage);
         }
     });
+    goPageButton.addEventListener('click', function() {
+        const pageInput = document.getElementById('page-input');
+        const page = parseInt(pageInput.value, 10);
+ 
+        if (!isNaN(page) && page > 0 && page <= Math.ceil(totalRows / rowsPerPage)) {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // 添加平滑滚动效果
+            });
+            currentPage = page;
+            renderTable(currentPage);
+        } else {
+            alert('Please enter a valid page number.');
+        }
+    });
+
+    
 });
 
 // 示例数据（应在实际应用中动态获取）

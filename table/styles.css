@@ -32,3 +32,6 @@ td:not(:first-child) {
     margin-top: 20px;
     text-align: center;
 }
+button {
+    text-align: center;
+}

@@ -9,6 +9,9 @@
 <body>
 
 <h1 style="text-align: center;">nai4单画师遍历</h1>
+<button id="copy-all-button" class="copy-button" disabled>复制</button>
+<span id="string-preview" style="display:inline-block; margin-left:10px;"></span>
+<button id="delete-all-button" class="copy-button" disabled>清除</button>
 
 <div id="table-container">
     <table id="image-table">
@@ -16,8 +19,8 @@
             <tr>
                 <th>画师tag</th>
                 <th>农田纯子</th>
-                <th>图片2</th>
-                <th>图片3</th>
+                <th>辣妹</th>
+                <th>紫色奶龙</th>
                 <th>图片4</th>
                 <th>图片5</th>
             </tr>
@@ -28,7 +31,14 @@
     </table>
 </div>
 
+<div>
+    <label for="page-input">Go to page:</label>
+    <input type="number" id="page-input" min="1">
+    <button id="go-to-page">Go</button>
+</div>
+
 <div id="pagination-controls" style="text-align:center; margin-top:20px;">
+    <button id="first-page" disabled>首页</button>
     <button id="prev-page" disabled>上一页</button>
     <span id="page-info"></span>
     <button id="next-page" disabled>下一页</button>
