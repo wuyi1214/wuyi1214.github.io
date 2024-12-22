@@ -80,10 +80,12 @@ str_3='''        // ...（30个对象的数组，每个对象包含标题和5个
 def longstr(list_of_it):
     fstr = f"        {{ title: '{list_of_it[0]}', images: ['{list_of_it[1]}', '{list_of_it[2]}', '{list_of_it[3]}', '{list_of_it[4]}', '{list_of_it[5]}'] }},"
     return fstr
-list_list_of_it = []
+list_list_of_it = [['无画风原图','og/1.png','og/2.png','og/3.png','null.png','null.png']]
 with open('artist.txt','r') as f:
     while True:
         st = f.readline().strip()
+        if st == 'artist:_':
+            continue
         if st == 'artist:':
             break
         path_0 = re.sub(r'artist:','',st)
