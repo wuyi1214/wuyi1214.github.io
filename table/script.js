@@ -751,49 +751,49 @@ document.addEventListener('DOMContentLoaded', function() {
             titleCell_1.appendChild(document.createTextNode(` ${data[i].title}`));
             titleCell.appendChild(titleCell_1);
             const addButton = document.createElement('button');
-            addButton.textContent = '添加';
+            addButton.textContent = '1';
             addButton.onclick = () => {
                 collectedString += data[i].title + ',';
                 updateCopyButtonAndPreview();
             };
             titleCell.appendChild(addButton);
             const addButton_1 = document.createElement('button');
-            addButton_1.textContent = '添加_1';
+            addButton_1.textContent = '2';
             addButton_1.onclick = () => {
                 collectedString_1 += data[i].title + ',';
                 updateCopyButtonAndPreview_1();
             };
             titleCell.appendChild(addButton_1);
             const addButton_2 = document.createElement('button');
-            addButton_2.textContent = '添加_2';
+            addButton_2.textContent = '3';
             addButton_2.onclick = () => {
                 collectedString_2 += data[i].title + ',';
                 updateCopyButtonAndPreview_2();
             };
             titleCell.appendChild(addButton_2);
             const addButton_3 = document.createElement('button');
-            addButton_3.textContent = '添加_3';
+            addButton_3.textContent = '4';
             addButton_3.onclick = () => {
                 collectedString_3 += data[i].title + ',';
                 updateCopyButtonAndPreview_3();
             };
             titleCell.appendChild(addButton_3);
             const addButton_4 = document.createElement('button');
-            addButton_4.textContent = '添加_4';
+            addButton_4.textContent = '5';
             addButton_4.onclick = () => {
                 collectedString_4 += data[i].title + ',';
                 updateCopyButtonAndPreview_4();
             };
             titleCell.appendChild(addButton_4);
             const addButton_5 = document.createElement('button');
-            addButton_5.textContent = '添加_5';
+            addButton_5.textContent = '6';
             addButton_5.onclick = () => {
                 collectedString_5 += data[i].title + ',';
                 updateCopyButtonAndPreview_5();
             };
             titleCell.appendChild(addButton_5);
             const addButton_6 = document.createElement('button');
-            addButton_6.textContent = '添加_6';
+            addButton_6.textContent = '7';
             addButton_6.onclick = () => {
                 collectedString_6 += data[i].title + ',';
                 updateCopyButtonAndPreview_6();
