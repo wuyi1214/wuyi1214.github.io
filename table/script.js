@@ -1076,6 +1076,29 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    document.addEventListener('keydown', function(event) {
+        // 检查是否按下了方向左键（ArrowLeft）
+        if (event.key === 'ArrowLeft') {
+            if (currentPage > 1) {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth' // 添加平滑滚动效果
+                });
+                currentPage--;
+                renderTable(currentPage);
+            }
+        } else if (event.key === 'ArrowRight') {
+            if (currentPage * rowsPerPage < totalRows) {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth' // 添加平滑滚动效果
+                });
+                currentPage++;
+                renderTable(currentPage);
+            }
+        }
+    });
+
     
 });
 
