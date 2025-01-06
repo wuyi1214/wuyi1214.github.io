@@ -1078,7 +1078,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.addEventListener('keydown', function(event) {
         // 检查是否按下了方向左键（ArrowLeft）
-        if (event.key === 'ArrowLeft') {
+        if (event.key === 'ArrowLeft' || event.key === 'a') {
             if (currentPage > 1) {
                 window.scrollTo({
                     top: 0,
@@ -1087,7 +1087,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentPage--;
                 renderTable(currentPage);
             }
-        } else if (event.key === 'ArrowRight') {
+        } else if (event.key === 'ArrowRight' || event.key === 'd') {
             if (currentPage * rowsPerPage < totalRows) {
                 window.scrollTo({
                     top: 0,
