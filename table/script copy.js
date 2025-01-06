@@ -747,58 +747,67 @@ document.addEventListener('DOMContentLoaded', function() {
     
             // 第一列：标题和添加按钮
             const titleCell = document.createElement('td');
-            const titleCell_1 = document.createElement('td');
+            const titleCell_1 = document.createElement('td_1');
             titleCell_1.appendChild(document.createTextNode(` ${data[i].title}`));
+            const addButton_copy = document.createElement('button');
+            addButton_copy.textContent = '复制';
+            addButton_copy.onclick = () => {
+                const artist_tag = data[i].title + ', ';
+                navigator.clipboard.writeText(artist_tag);
+            };
+            titleCell_1.appendChild(addButton_copy);
             titleCell.appendChild(titleCell_1);
+            const titleCell_2 = document.createElement('td');
             const addButton = document.createElement('button');
-            addButton.textContent = '添加';
+            addButton.textContent = '1';
             addButton.onclick = () => {
                 collectedString += data[i].title + ', ';
                 updateCopyButtonAndPreview();
             };
-            titleCell.appendChild(addButton);
+            titleCell_2.appendChild(addButton);
             const addButton_1 = document.createElement('button');
-            addButton_1.textContent = '添加_1';
+            addButton_1.textContent = '2';
             addButton_1.onclick = () => {
                 collectedString_1 += data[i].title + ', ';
                 updateCopyButtonAndPreview_1();
             };
-            titleCell.appendChild(addButton_1);
+            titleCell_2.appendChild(addButton_1);
             const addButton_2 = document.createElement('button');
-            addButton_2.textContent = '添加_2';
+            addButton_2.textContent = '3';
             addButton_2.onclick = () => {
                 collectedString_2 += data[i].title + ', ';
                 updateCopyButtonAndPreview_2();
             };
-            titleCell.appendChild(addButton_2);
+            titleCell_2.appendChild(addButton_2);
             const addButton_3 = document.createElement('button');
-            addButton_3.textContent = '添加_3';
+            addButton_3.textContent = '4';
             addButton_3.onclick = () => {
                 collectedString_3 += data[i].title + ', ';
                 updateCopyButtonAndPreview_3();
             };
-            titleCell.appendChild(addButton_3);
+            titleCell_2.appendChild(addButton_3);
             const addButton_4 = document.createElement('button');
-            addButton_4.textContent = '添加_4';
+            addButton_4.textContent = '5';
             addButton_4.onclick = () => {
                 collectedString_4 += data[i].title + ', ';
                 updateCopyButtonAndPreview_4();
             };
-            titleCell.appendChild(addButton_4);
+            titleCell_2.appendChild(addButton_4);
             const addButton_5 = document.createElement('button');
-            addButton_5.textContent = '添加_5';
+            addButton_5.textContent = '6';
             addButton_5.onclick = () => {
                 collectedString_5 += data[i].title + ', ';
                 updateCopyButtonAndPreview_5();
             };
-            titleCell.appendChild(addButton_5);
+            titleCell_2.appendChild(addButton_5);
             const addButton_6 = document.createElement('button');
-            addButton_6.textContent = '添加_6';
+            addButton_6.textContent = '7';
             addButton_6.onclick = () => {
                 collectedString_6 += data[i].title + ', ';
                 updateCopyButtonAndPreview_6();
             };
-            titleCell.appendChild(addButton_6);
+            titleCell_2.appendChild(addButton_6);
+            titleCell.appendChild(titleCell_2);
             row.appendChild(titleCell);
     
             // 其他列：图像
@@ -889,12 +898,10 @@ document.addEventListener('DOMContentLoaded', function() {
         textArea.select();
         document.execCommand('copy');
         document.body.removeChild(textArea);
-        alert('字符串已复制到剪贴板！');
     }
     function clearCollectedStrings() {
         collectedString = ''; // 重置数组
         updateCopyButtonAndPreview();
-        alert('已清除！');
     }
     function copyStringToClipboard_1() {
         const textArea = document.createElement('textarea');
@@ -903,12 +910,12 @@ document.addEventListener('DOMContentLoaded', function() {
         textArea.select();
         document.execCommand('copy');
         document.body.removeChild(textArea);
-        alert('字符串已复制到剪贴板！');
+
     }
     function clearCollectedStrings_1() {
         collectedString_1 = ''; // 重置数组
         updateCopyButtonAndPreview_1();
-        alert('已清除！');
+
     }
     function copyStringToClipboard_2() {
         const textArea = document.createElement('textarea');
@@ -917,12 +924,12 @@ document.addEventListener('DOMContentLoaded', function() {
         textArea.select();
         document.execCommand('copy');
         document.body.removeChild(textArea);
-        alert('字符串已复制到剪贴板！');
+
     }
     function clearCollectedStrings_2() {
         collectedString_2 = ''; // 重置数组
         updateCopyButtonAndPreview_2();
-        alert('已清除！');
+
     }
     function copyStringToClipboard_3() {
         const textArea = document.createElement('textarea');
@@ -931,12 +938,12 @@ document.addEventListener('DOMContentLoaded', function() {
         textArea.select();
         document.execCommand('copy');
         document.body.removeChild(textArea);
-        alert('字符串已复制到剪贴板！');
+
     }
     function clearCollectedStrings_3() {
         collectedString_3 = ''; // 重置数组
         updateCopyButtonAndPreview_3();
-        alert('已清除！');
+
     }
     function copyStringToClipboard_4() {
         const textArea = document.createElement('textarea');
@@ -945,12 +952,12 @@ document.addEventListener('DOMContentLoaded', function() {
         textArea.select();
         document.execCommand('copy');
         document.body.removeChild(textArea);
-        alert('字符串已复制到剪贴板！');
+
     }
     function clearCollectedStrings_4() {
         collectedString_4 = ''; // 重置数组
         updateCopyButtonAndPreview_4();
-        alert('已清除！');
+
     }
     function copyStringToClipboard_5() {
         const textArea = document.createElement('textarea');
@@ -959,12 +966,12 @@ document.addEventListener('DOMContentLoaded', function() {
         textArea.select();
         document.execCommand('copy');
         document.body.removeChild(textArea);
-        alert('字符串已复制到剪贴板！');
+
     }
     function clearCollectedStrings_5() {
         collectedString_5 = ''; // 重置数组
         updateCopyButtonAndPreview_5();
-        alert('已清除！');
+
     }
     function copyStringToClipboard_6() {
         const textArea = document.createElement('textarea');
@@ -973,12 +980,12 @@ document.addEventListener('DOMContentLoaded', function() {
         textArea.select();
         document.execCommand('copy');
         document.body.removeChild(textArea);
-        alert('字符串已复制到剪贴板！');
+
     }
     function clearCollectedStrings_6() {
         collectedString_6 = ''; // 重置数组
         updateCopyButtonAndPreview_6();
-        alert('已清除！');
+
     }
     
     // 初始化复制按钮的点击事件
