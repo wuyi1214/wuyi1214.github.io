@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>比较奇特的画风</title>
+    <link rel="stylesheet" href="styles_1.css">
+</head>
+<body>
+
+<h1 style="text-align: center;">比较奇特的画风</h1>
+<div>
+<button id="copy-all-button" class="copy-button" disabled>复制</button>
+<span id="string-preview" style="display:inline-block; margin-left:10px;"></span>
+<button id="delete-all-button" class="delete-button" disabled>清除</button>
+</div>
+<div>
+<button id="copy-all-button_1" class="copy-button_1" disabled>复制</button>
+<span id="string-preview_1" style="display:inline-block; margin-left:10px;"></span>
+<button id="delete-all-button_1" class="delete-button_1" disabled>清除</button>
+</div>
+<div>
+<button id="copy-all-button_2" class="copy-button_2" disabled>复制</button>
+<span id="string-preview_2" style="display:inline-block; margin-left:10px;"></span>
+<button id="delete-all-button_2" class="delete-button_2" disabled>清除</button>
+</div>
+<div>
+<button id="copy-all-button_3" class="copy-button_3" disabled>复制</button>
+<span id="string-preview_3" style="display:inline-block; margin-left:10px;"></span>
+<button id="delete-all-button_3" class="delete-button_3" disabled>清除</button>
+</div>
+<div>
+<button id="copy-all-button_4" class="copy-button_4" disabled>复制</button>
+<span id="string-preview_4" style="display:inline-block; margin-left:10px;"></span>
+<button id="delete-all-button_4" class="delete-button_4" disabled>清除</button>
+</div>
+<div>
+<button id="copy-all-button_5" class="copy-button_5" disabled>复制</button>
+<span id="string-preview_5" style="display:inline-block; margin-left:10px;"></span>
+<button id="delete-all-button_5" class="delete-button_5" disabled>清除</button>
+</div>
+<div>
+<button id="copy-all-button_6" class="copy-button_6" disabled>复制</button>
+<span id="string-preview_6" style="display:inline-block; margin-left:10px;"></span>
+<button id="delete-all-button_6" class="delete-button_6" disabled>清除</button>
+</div>
+
+<div id="table-container">
+    <table id="image-table">
+        <thead>
+            <tr>
+                <th>画师tag</th>
+                <th>深夜，与莉音见面</th>
+                <th>坏小孩</th>
+                <th>我先开动了</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <!-- 数据行将在这里动态插入 -->
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <label for="page-input">Go to page:</label>
+    <input type="number" id="page-input" min="1">
+    <button id="go-to-page">Go</button>
+</div>
+
+<div id="pagination-controls" style="text-align:center; margin-top:20px;">
+    <button id="first-page" disabled>首页</button>
+    <button id="prev-page" disabled>上一页</button>
+    <span id="page-info"></span>
+    <button id="next-page" disabled>下一页</button>
+</div>
+
+<script src="script_特别.js"></script>
+</body>
+</html>
